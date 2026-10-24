@@ -1,6 +1,6 @@
 # Entrega do Desafio: App de Finanças Pessoais "Pé no Chão" com Vibe Coding
 
-**Acesse o MVP rodando ao vivo aqui:** [Testar o App Pé no Chão](https://saldo-em-equili.lovable.app)
+**Acesse o MVP rodando ao vivo aqui:** [Testar o App Pé no Chão](https://saldo-em-equil.lovable.app)
 
 **Projeto:** App Pé no Chão (Vibe Coding)  
 **Aluna / PO / QA:** Stella Mendes Batista  

@@ -1,89 +1,72 @@
-# 💸 App de Organização de Finanças Pessoais com Vibe Coding
+# Entrega do Desafio: App de Finanças Pessoais "Pé no Chão" com Vibe Coding
 
-Aprenda a **criar soluções com IA** de forma criativa, guiando ferramentas como o **Copilot** e o **Lovable** com uma comunicação simples e natural. O foco é desenvolver o conceito de um **App de Organização de Finanças Pessoais**, mas, acima de tudo, aprender o **jeito Vibe de programar com IA**.
+**Acesse o MVP rodando ao vivo aqui:** [Testar o App Pé no Chão](https://saldo-em-equili.lovable.app)
 
-## ✨ O que é Vibe Coding
+**Projeto:** App Pé no Chão (Vibe Coding)  
+**Aluna / PO / QA:** Stella Mendes Batista  
+**Bootcamp:** DIO / Santander - App com IA  
+**Data:** Outubro de 2026
 
-**Vibe Coding** é uma forma leve e criativa de desenvolver com IA, baseada em **conversas naturais e bem estruturadas**. Você não precisa escrever código linha por linha. Em vez disso, aprende a **guiar a IA** descrevendo suas ideias de forma clara, com **intenção e contexto**. Em outras palavras:
+## 1. Resumo do App de Finanças Pessoais
+O **"Pé no Chão"** é um aplicativo financeiro (MVP) desenvolvido com a abordagem de *Vibe Coding*. Seu objetivo é eliminar a barreira das planilhas complexas e da estética fria dos bancos tradicionais. O app permite que o usuário registre sua vida financeira através de conversas naturais ou áudio (Speech-to-Text) com a assistente virtual "Tutu", que possui uma personalidade empática e brasileira. Ele processa colagens diretas de faturas e SMS, categoriza os gastos automaticamente e gera painéis visuais simples (como o Gráfico de Rosca), além de permitir o controle de "Metas" (cofrinhos) e status de pagamento através de um sistema de "Check" (✓) inspirado em cadernos físicos.
 
-> Você mostra a vibe da sua ideia e a IA transforma em solução (ou em um caminho para ela).
+## 2. Prompt Final (PRD Consolidado v5.0)
+*Este foi o escopo técnico final (Product Requirements Document) injetado no Lovable para gerar o aplicativo completo, englobando todas as iterações e refinamentos.*
 
-## 🎯 Desafio
+```markdown
 
-Problema: Muitas pessoas não conseguem manter um controle financeiro porque os aplicativos exigem muita entrada de dados manual, e a criação de orçamentos é vista como algo tedioso. 
+# Super Atualização de PRD: Responsividade Global Multi-Dispositivo, 5 Abas e Filtro Inteligente
 
-Precisamos de uma solução que permita **controlar as finanças por meio de uma conversa simples**, com **agentes de IA** capazes de criar **planos de economia personalizados e automatizados**. Você deve utilizar as ideias de **Vibe Coding** e **MVP (Produto Mínimo Viável)** para desenvolver o **conceito de um aplicativo** que resolva o problema citado.
+## 1. Responsividade Global e Adaptabilidade Multi-Dispositivo (TODO O APP)
+A adaptação de tamanho, fontes, margens e layout DEVE ser aplicada a TODAS as abas e componentes do aplicativo de forma 100% automática e fluida conforme o dispositivo detectado (breakpoints do Tailwind CSS):
+- Versão Computador (Desktop): Layout expansivo em múltiplas colunas equilibradas, aproveitando a largura da tela com excelente espaçamento e legibilidade.
+- Versão Tablet: Disposição intermediária responsiva em 2 colunas, com elementos touch-friendly.
+- Versão Celular (Mobile - Todas as Abas): 
+  - Conversa: O chat da Tutu e o campo de digitação/áudio devem ocupar a tela sem criar rolagem dupla ou quebrar caixas de texto.
+  - Histórico: Tabela/lista de transações adaptada para telas estreitas.
+  - Metas: Os cards de metas devem se ajustar para ocupar a largura da tela sem estourar margens.
+  - Painel: Os 3 cards de resumo superiores ("Saldo", "Entrou", "Saiu") devem usar uma grelha ultra-compacta ou carrossel horizontal. O Gráfico de Rosca DEVE estar visível imediatamente ao abrir a aba, sem exigir rolagem.
+  - Visão Geral: Componentes empilhados sem rolagem desnecessária.
 
-> [!IMPORTANT]
-> Você **não precisa construir o código**! O foco está em **usar a IA como sua parceira criativa**, transformando boas ideias e prompts em conceitos funcionais que simulam um produto real.
+## 2. Nome Oficial, Cadastro Completo e LGPD
+- Nome: O aplicativo se chama "Pé no Chão" (com acentuação correta em toda a interface).
+- Cadastro: O formulário de registro inicial DEVE exigir obrigatoriamente: Nome Completo, Data de Nascimento, E-mail e Senha.
+- LGPD: Checkbox obrigatório de aceite dos Termos de Uso e Privacidade na criação da conta.
 
-## 🪄 Etapas do Desafio
+## 3. Reestruturação do Menu em 5 Abas Independentes
+O menu de navegação deve ter exatamente 5 abas com isolamento estrito de componentes:
+1. Conversa: Chat da Tutu ("Seu bloco de notas inteligente") com suporte a áudio (Speech-to-Text via microfone) e leitor inteligente de notificações de banco/SMS (perguntando como o usuário deseja renomear o nome fantasia do estabelecimento). O chat deve iniciar limpo ao abrir, sem histórico longo ou lista de registros antigos abaixo dele.
+2. Histórico: NOVA ABA exclusiva para listar todas as transações de entradas e saídas. Deve conter ícone de lápis para edição e botão interativo de Check (✓) para alternar o status entre pago/recebido (Verde Menta) e pendente (Cinza).
+3. Metas: Aba exclusiva para a exibição e criação dos cards de "Minhas Metas", com modal de edição para alterar o Nome da Meta e o Valor Alvo.
+4. Painel: Visão macro contendo apenas os cards compactos de resumo e o Gráfico de Rosca (Donut Chart) centralizado com o "TOTAL GASTO: R$ [Valor]" no centro. REMOVA a lista de registros consolidados do final desta tela.
+5. Visão Geral: Análise detalhada com o "Resumo Financeiro Unificado" (Balanço + Saldo combinados num único card de destaque) e controles de sub-abas internas ("Despesas" e "Receitas") para alternar as barras de categorias sem poluição visual.
 
-### 1. Saber o que Pedir é a Chave! Otimize seus Prompts!
+## 4. Único Dropdown Inteligente de Período
+Substitua múltiplos seletores por um Único Dropdown Inteligente de Período no topo das abas Painel e Visão Geral (ex: "Outubro de 2026", "Último Trimestre", "Ano Atual"). Ao selecionar uma opção, todos os gráficos e indicadores da tela são recalculados automaticamente.
 
-Antes de pedir para a IA "criar um app", é importante definir com clareza o que você quer construir e por quê. Para isso, você vai criar um **PRD (Product Requirements Document)** simplificado, uma especificação que serve como _briefing_ para a IA entender sua ideia.
-
-Um bom PRD deve descrever o problema, quem será beneficiado, as principais funcionalidades e o que você espera que a IA entregue. Use o modelo abaixo como ponto de partida e adapte conforme o seu estilo:
-
-```txt
-# Contexto
-Quero criar um aplicativo de Organização de Finanças Pessoais que funcione por meio de conversas com o usuário.  
-A ideia é facilitar o controle financeiro de forma simples e natural, sem formulários manuais ou planilhas complexas.
-
-# Problema
-Muitas pessoas desistem de controlar seus gastos porque os apps atuais exigem muita entrada manual e pouca personalização.  
-Quero resolver isso com uma experiência de conversa e recomendações automáticas de economia.
-
-# Público-Alvo
-Pessoas que querem começar a organizar suas finanças de forma prática e sem complicação, principalmente iniciantes.
-
-# Funcionalidades-Chave
-1. Registrar gastos via chat em linguagem natural.  
-2. Classificar automaticamente as transações.  
-3. Definir e acompanhar metas financeiras.  
-4. Receber dicas de economia do “Agente Financeiro”.  
-5. Visualizar relatórios simples e personalizados.
-
-# Entregável da IA
-Gerar um plano de MVP com as principais telas, recursos necessários e um esboço de validação inicial.  
-Usar tom educativo e linguagem acessível, em português.
+## Entregável
+Garanta responsividade automática em todo o aplicativo (Desktop, Tablet e Mobile) em todas as 5 abas. Aplique a tela de cadastro completa com Data de Nascimento e LGPD, mova a lista de transações para o "Histórico", mantenha o chat da Tutu limpo, adicione o gráfico de rosca no Painel e refatore a Visão Geral com o Balanço unificado e sub-abas.
 ```
 
-Depois de preencher o modelo, use o Copilot Web para revisar e melhorar o seu prompt antes de ir ao Lovable. A ideia é lapidar o texto até que ele fique claro, direto e reflita exatamente a sua intenção.
+## 3. Imagens da Interface (Evidências)
+*(Arraste as imagens do Lovable para baixo desta linha)*
 
-> [!TIP]
-> Pense no PRD/Prompt como “o briefing que a IA precisa para entender sua vibe”. Portanto, quanto mais claro e intencional for o texto, mais próximas do ideal serão as respostas da IA.
+*   <img width="886" height="498" alt="image" src="https://github.com/user-attachments/assets/cd522f17-ee95-4340-a2df-0e29cfd0211a" />
 
-### 2. Explorando o Lovable na Prática
+*   <img width="886" height="498" alt="image" src="https://github.com/user-attachments/assets/b5802d56-a027-4de9-ab4f-e8d3ed7305ac" />
 
-Com seu PRD pronto e revisado, é hora de colocar a IA em ação. Abra o Lovable, cole seu prompt completo e peça o plano inicial do MVP do seu aplicativo. Como o plano gratuito limita você a 5 interações por dia, seja estratégico:
-- Faça perguntas diretas e construtivas, como “crie o fluxo de telas com base nas funcionalidades listadas” ou “gere uma versão resumida do plano de MVP”;
-- Priorize clareza nas instruções para aproveitar ao máximo cada resposta;
+*   <img width="886" height="498" alt="image" src="https://github.com/user-attachments/assets/f43abf4b-9efd-4393-a203-bf6d0c14a403" />
 
-Durante essa etapa, você pode orientar a IA para três entregas principais:
-1. Agente Financeiro: defina o comportamento e o tom de voz de um consultor financeiro pessoal, alinhado ao público e objetivo do app.
-2. Fluxo de Telas: peça à IA para gerar o fluxo conceitual de telas com base nas funcionalidades descritas no PRD, simulando a interação por conversa.
-3. Plano de MVP: solicite um resumo das 5 funcionalidades principais, dos recursos necessários e um plano de validação inicial (como medir se o app cumpre seu propósito).
+*   <img width="886" height="498" alt="image" src="https://github.com/user-attachments/assets/31380fc6-ff9d-4401-b3b9-183ae07cc3e3" />
 
-> [!TIP]
-> Se preferir, você pode fazer tudo com o **Copilot**. O importante é exercitar a habilidade de transformar intenções em instruções claras e testar os limites da IA como parceira criativa.
 
-### 3. Entregando o Desafio na DIO
+## 4. Reflexão sobre o Processo
 
-Finalize seu projeto criando um **repositório no GitHub** (pode ser um **fork** deste).  
-No README do seu repositório, inclua:
+### O que funcionou bem?
+A estruturação prévia das regras de negócio através de um Product Requirements Document (PRD) rigoroso. Atuar com uma visão de Product Owner (PO) me permitiu definir a arquitetura e a identidade visual (Design Universal, paleta pop inspirada em canetas) antes mesmo de gerar a primeira tela. Além disso, a estratégia de testar e refinar os prompts em LLMs gratuitos (como Copilot e Gemini) antes de injetá-los no Lovable funcionou perfeitamente para economizar os créditos de compilação da ferramenta.
 
-- Seu **prompt final** (PRD);  
-- Prints ou pequenos vídeos das interações com a IA;  
-- Um resumo do que o seu **App de Finanças Pessoais** faz;  
-- Uma breve **reflexão sobre o processo**:
-  - O que funcionou bem?  
-  - O que não funcionou como o esperado?  
-  - O que aprendeu sobre conversar com IAs?
+### O que não funcionou como o esperado?
+O limite restrito de 5 interações diárias no plano gratuito do Lovable exigiu pausas forçadas no desenvolvimento, obrigando a um planeamento rigoroso. Além disso, a IA do Lovable teve dificuldade inicial com a gestão de estado do React, gerando "ilhas" de código (onde o chat não conseguia atualizar os cofrinhos) e criando poluição visual (como filtros duplicados e scroll excessivo no mobile).
 
-> [!TIP]
-> Publique seu repositório e compartilhe o link na plataforma da DIO! Sua entrega é a prova de que você domina o raciocínio de Vibe Coding, mesmo sem escrever uma única linha de código.
-
-## 💬 Conclusão
-
-Vibe Coding é sobre clareza, curiosidade e criatividade, não sobre perfeição técnica. O verdadeiro objetivo aqui é aprender a pensar junto com a IA, transformando ideias em conceitos reais e enxergando a tecnologia como uma extensão do seu raciocínio criativo. Cada interação é um experimento, quanto mais clara for sua intenção, mais surpreendente será o resultado.
+### O que aprendeu sobre conversar com IAs?
+Aprendi que *Vibe Coding* não é apenas pedir para a IA "fazer uma app", mas sim guiá-la de forma técnica e objetiva. A IA responde excecionalmente bem quando atuamos como Analistas de QA (Quality Assurance), apontando erros específicos na interface, exigindo o isolamento estrito de componentes em abas e ditando regras claras de UX/UI (como a unificação de elementos e responsividade via `Tailwind CSS`). No Vibe Coding, a precisão da linguagem determina a usabilidade final do produto.
